@@ -9,6 +9,6 @@ program
   .version('0.0.1')
   .option('-f, --format <type>', 'output format')
   .arguments('<filepath1> <filepath2>')
-  
+  .action((filepath1) => {console.log('hello: ', filepath1)});
 
 program.parse();
