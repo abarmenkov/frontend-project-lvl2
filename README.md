@@ -1,14 +1,15 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/abarmenkov/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl2/actions) [![Node.js CI](https://github.com/abarmenkov/frontend-project-lvl2/actions/workflows/node.js.yml/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl2/actions/workflows/node.js.yml)
+[![Actions Status](https://github.com/abarmenkov/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl2/actions) [![Node.js CI](https://github.com/abarmenkov/frontend-project-lvl2/actions/workflows/node.js.yml/badge.svg)](https://github.com/abarmenkov/frontend-project-lvl2/actions/workflows/node.js.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/16e7bf666655cc78ae59/maintainability)](https://codeclimate.com/github/abarmenkov/frontend-project-lvl2/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/16e7bf666655cc78ae59/test_coverage)](https://codeclimate.com/github/abarmenkov/frontend-project-lvl2/test_coverage)
 
-### This is a console application for determining the difference between two data structures.
+Diff Generator (Генератор различий)
 
-#### Utility Features:
+### Консольное приложение для определения разницы двух структур данных
 
-- Support for different input formats: yaml/yml, json
-- Generating a report in the form of plain text, stylish and json
+#### Особенности приложения:
 
-### Installation and launch
+- Поддержка разных форматов: yaml/yml, json
+- Представление отчета в форматах: plain text, stylish, json
+
+### Установка и запуск
 
 ```
 $ git clone git@github.com:abarmenkov/frontend-project-lvl2.git
