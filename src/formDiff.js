@@ -1,32 +1,27 @@
 import _ from 'lodash';
 
 const getKeys = (obj1, obj2) => {
-    let keys1 = Object.keys(obj1);
-    let keys2 = Object.keys(obj2);
-    return keys1.concat(keys2.filter((item) => !keys1.includes(item))).sort();
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+  return keys1.concat(keys2.filter((item) => !keys1.includes(item))).sort();
 };
 
 const compareObj = (obj1, obj2) => {
-    let keys = getKeys(obj1, obj2);
-    let result = [];
-    for (let item of keys) {
-        if (_.has(obj1, item) && _.has(obj2, item)) {
-            if (obj1[item] === obj2[item]) {
-                result.push(`  ${item}: ${obj1[item]}`);
-            } else {
-                result.push(`- ${item}: ${obj1[item]}`);
-                result.push(`+ ${item}: ${obj2[item]}`);
-            };
-        };
-        if (_.has(obj1, item) && !_.has(obj2, item)) {
-            result.push(`- ${item}: ${obj1[item]}`);
-        };
-        if (!_.has(obj1, item) && _.has(obj2, item)) {
-            result.push(`+ ${item}: ${obj2[item]}`);
-        }
-
-    }
-    return result;
+  const keys = getKeys(obj1, obj2);
+  const result = keys
+    .reduce((acc, key) => {
+      if (!_.has(obj1, key)) {
+        return [...acc, `+ ${key}: ${obj2[key]}`];
+      }
+      if (!_.has(obj2, key)) {
+        return [...acc, `- ${key}: ${obj1[key]}`];
+      }
+      if (obj1[key] !== obj2[key]) {
+        return [...acc, `- ${key}: ${obj1[key]}`, `+ ${key}: ${obj2[key]}`];
+      }
+      return [...acc, `  ${key}: ${obj1[key]}`];
+    }, []).join('\n  ');
+  return `{\n  ${result}\n}`;
 };
 
 export default compareObj;
