@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import {
-  Command
+  Command,
 } from 'commander/esm.mjs';
 
 import getDiff from '../src/index.js';
