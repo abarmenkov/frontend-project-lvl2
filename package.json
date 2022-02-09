@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A program for determining the difference between two data structures",
   "main": "src/index.js",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -21,10 +25,7 @@
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21"
   },
-  "bin": {
-    "gendiff": "bin/gendiff.js"
-  },
-  "type": "module",
+  
   "devDependencies": {
     "@types/commander": "^2.12.2",
     "eslint": "^8.8.0",

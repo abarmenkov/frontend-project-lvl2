@@ -7,7 +7,6 @@ const getFileFormat = (filePath) => path.extname(filePath).slice(1);
 
 const getFileContent = (filePath) => {
   const fullPath = path.resolve(process.cwd(), filePath);
-  // const fullPath = path.resolve(`${process.cwd()}${filePath}`);
   const data = fs.readFileSync(fullPath, 'utf-8');
   return data;
 };
