@@ -6,22 +6,42 @@ const getKeys = (obj1, obj2) => {
   return keys1.concat(keys2.filter((item) => !keys1.includes(item))).sort();
 };
 
-const compareObj = (obj1, obj2) => {
-  const keys = getKeys(obj1, obj2);
-  const result = keys
-    .reduce((acc, key) => {
-      if (!_.has(obj1, key)) {
-        return [...acc, `+ ${key}: ${obj2[key]}`];
+const formDiff = (data1, data2) => {
+  const keys = getKeys(data1, data2);
+  return keys
+    .map((key) => {
+      if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+        return {
+          type: 'nested',
+          key,
+          value: null,
+          children: formDiff(data1[key], data2[key]),
+        };
       }
-      if (!_.has(obj2, key)) {
-        return [...acc, `- ${key}: ${obj1[key]}`];
+      if (!_.has(data1, key)) {
+        return {
+          type: 'added',
+          key,
+          value: data2[key],
+        };
       }
-      if (obj1[key] !== obj2[key]) {
-        return [...acc, `- ${key}: ${obj1[key]}`, `+ ${key}: ${obj2[key]}`];
+      if (!_.has(data2, key)) {
+        return {
+          type: 'removed',
+          key,
+          value: data1[key],
+        };
       }
-      return [...acc, `  ${key}: ${obj1[key]}`];
-    }, []).join('\n  ');
-  return `{\n  ${result}\n}`;
+      if (data1[key] !== data2[key]) {
+        return {
+          key,
+          type: 'different',
+          value: data1[key],
+          value2: data2[key],
+        };
+      }
+      return { type: ' ', key, value: data1[key] };
+    });
 };
 
-export default compareObj;
+export default formDiff;
