@@ -3,7 +3,7 @@ import _ from 'lodash';
 const getKeys = (obj1, obj2) => {
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
-  return keys1.concat(keys2.filter((item) => !keys1.includes(item))).sort();
+  return _.sortBy(_.union(keys1, keys2));
 };
 
 const formDiff = (data1, data2) => {
