@@ -33,8 +33,16 @@ $gendiff file1.yml file2.yml
 plain format
 
 $gendiff -f plain file1.json file2.json
-$gendiff --format plain file1.yaml file2.yaml
+$gendiff --format plain file1.yml file2.yml
 
 [![asciicast](https://asciinema.org/a/TQ0sAQ4dCz5iOELCT87VSNXly.svg)](https://asciinema.org/a/TQ0sAQ4dCz5iOELCT87VSNXly)
+
+json format
+
+$gendiff -f json file1.json file2.json
+$gendiff --format json file1.yml file2.yml
+
+[![asciicast](https://asciinema.org/a/3fisjLN4WzecWQwc72orvGM4N.svg)](https://asciinema.org/a/3fisjLN4WzecWQwc72orvGM4N)
+
 
 
