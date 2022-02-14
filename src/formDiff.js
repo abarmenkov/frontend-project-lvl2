@@ -40,7 +40,7 @@ const formDiff = (data1, data2) => {
           value2: data2[key],
         };
       }
-      return { type: ' ', key, value: data1[key] };
+      return { type: 'unchanged', key, value: data1[key] };
     });
 };
 

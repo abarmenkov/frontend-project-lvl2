@@ -41,7 +41,7 @@ const stylish = (data) => {
               `${indentForChaned}${symbols.removed}${item.key}: ${stringify(item.value, depth + 1)}`,
               `${indentForChaned}${symbols.added}${item.key}: ${stringify(item.value2, depth + 1)}`,
             ];
-          case ' ':
+          case 'unchanged':
             return `${indent}${item.key}: ${stringify(item.value, depth + 1)}`;
           default:
             throw new Error(`Type ${item.type} is not supported!`);
