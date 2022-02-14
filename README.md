@@ -21,10 +21,20 @@ $ gendiff -h
 [![asciicast](https://asciinema.org/a/F70DoUwItLXSpGmqwWVp5Ew9S.svg)](https://asciinema.org/a/F70DoUwItLXSpGmqwWVp5Ew9S)
 
 
-### Пример сравнения:
+### Примеры сравнения:
+
 stylish format
 
 $gendiff file1.json file2.json
 $gendiff file1.yml file2.yml
 
 [![asciicast](https://asciinema.org/a/DcHNk5PU3w4nh2xt8ArYcuVxW.svg)](https://asciinema.org/a/DcHNk5PU3w4nh2xt8ArYcuVxW)
+
+plain format
+
+$gendiff -f plain file1.json file2.json
+$gendiff --format plain file1.yaml file2.yaml
+
+[![asciicast](https://asciinema.org/a/TQ0sAQ4dCz5iOELCT87VSNXly.svg)](https://asciinema.org/a/TQ0sAQ4dCz5iOELCT87VSNXly)
+
+
