@@ -6,7 +6,7 @@ const getKeys = (obj1, obj2) => {
   return _.sortBy(_.union(keys1, keys2));
 };
 
-const formDiff = (data1, data2) => {
+const getDiff = (data1, data2) => {
   const keys = getKeys(data1, data2);
   return keys
     .map((key) => {
@@ -15,7 +15,7 @@ const formDiff = (data1, data2) => {
           type: 'nested',
           key,
           value: null,
-          children: formDiff(data1[key], data2[key]),
+          children: getDiff(data1[key], data2[key]),
         };
       }
       if (!_.has(data1, key)) {
@@ -44,4 +44,4 @@ const formDiff = (data1, data2) => {
     });
 };
 
-export default formDiff;
+export default getDiff;
