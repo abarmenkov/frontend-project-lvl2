@@ -17,10 +17,9 @@ const getParsedContent = (filePath) => parse(getFileContent(filePath), getFileFo
 const genDiff = (filePath1, filePath2, formatName = 'stylish') => {
   const data1 = getParsedContent(filePath1);
   const data2 = getParsedContent(filePath2);
-  const format = formatDiff(formatName);
   const diff = formDiff(data1, data2);
 
-  return format(diff);
+  return formatDiff(diff, formatName);
 };
 
 export default genDiff;
