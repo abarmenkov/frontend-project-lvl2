@@ -14,20 +14,17 @@ const json = readFile('result-json.txt');
 const stylish = readFile('result-stylish.txt');
 const plain = readFile('result-plain.txt');
 
-test('test-json', () => {
-  const filepath1 = getFixedPath('file1.json');
-  const filepath2 = getFixedPath('file2.json');
-  expect(genDiff(filepath1, filepath2)).toBe(json);
-});
-
-test('test-yml', () => {
-  const filepath1 = getFixedPath('file1.yml');
-  const filepath2 = getFixedPath('file2.yml');
-  expect(genDiff(filepath1, filepath2)).toBe(stylish);
-});
-
-test('test-plain', () => {
-  const filepath1 = getFixedPath('file1.json');
-  const filepath2 = getFixedPath('file2.json');
-  expect(genDiff(filepath1, filepath2, 'plain')).toBe(plain);
+test.each([{
+  file1: 'file1.yml', file2: 'file2.yml', format: 'stylish', expected: stylish,
+}, {
+  file1: 'file1.json', file2: 'file2.json', format: 'plain', expected: plain,
+}, {
+  file1: 'file1.json', file2: 'file2.json', format: 'json', expected: json,
+},
+])('test-diffs', ({
+  file1, file2, format, expected,
+}) => {
+  const filepath1 = getFixedPath(file1);
+  const filepath2 = getFixedPath(file2);
+  expect(genDiff(filepath1, filepath2, format)).toBe(expected);
 });
