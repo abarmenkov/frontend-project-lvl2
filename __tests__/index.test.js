@@ -19,7 +19,7 @@ test.each([{
 }, {
   file1: 'file1.json', file2: 'file2.json', format: 'plain', expected: plain,
 }, {
-  file1: 'file1.json', file2: 'file2.json', format: 'json', expected: json,
+  file1: 'file1.json', file2: 'file2.json', format: 'stylish', expected: json,
 },
 ])('test-diffs', ({
   file1, file2, format, expected,
